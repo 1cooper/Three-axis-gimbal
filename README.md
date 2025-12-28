@@ -1,8 +1,9 @@
 # Three-axis gimbal
 
-Status: In progress
+Status: In progress  
 Sort: Prj
 
+## TODO
 - [x]  改进云台结构，4310电机承重2025-12-15 22:16:56
 - [x]  等元器件，焊接2025-12-23 23:06:42
 - [x]  改PCB sample LSB问题 dcdc啸叫2025-12-24 17:22:35
@@ -10,43 +11,54 @@ Sort: Prj
 - [x]  焊接第二版
 - [ ]  开始打印结构件
 
-# Structure
+---
 
-Ver1.0：
+## Structure
 
-![9a7429444ead9815cb6c9cb01ef3c920_720.png](ExportBlock/9a7429444ead9815cb6c9cb01ef3c920_720.png)
+### Ver1.0
+<p align="center">
+  <img src="ExportBlock/9a7429444ead9815cb6c9cb01ef3c920_720.png" width="600">
+</p>
 
-Ver1.1：底部加入支撑转盘
+### Ver1.1：底部加入支撑转盘
+<p align="center">
+  <img src="ExportBlock/image.png" width="600">
+</p>
 
-![image.png](image.png)
+---
 
-# Hardware
+## Hardware
 
-### Mini_Drv Ver1.0：
+### Mini_Drv Ver1.0
+<p align="center">
+  <img src="ExportBlock/image%201.png" width="480"><br>
+  <img src="ExportBlock/image%202.png" width="480"><br>
+  <img src="ExportBlock/image%203.png" width="480">
+</p>
 
-![image.png](image%201.png)
+### Mini_Drv Ver1.1
+<p align="center">
+  <img src="ExportBlock/image%204.png" width="480"><br>
+  <img src="ExportBlock/image%205.png" width="480"><br>
+  <img src="ExportBlock/image%206.png" width="480">
+</p>
 
-![image.png](image%202.png)
+---
 
-![image.png](image%203.png)
+## Software
 
-### Mini_Drv Ver1.1：
+### pid参数
+<p align="center">
+  <img src="ExportBlock/image%207.png" width="500">
+</p>
 
-![image.png](image%204.png)
+---
 
-![image.png](image%205.png)
-
-![image.png](image%206.png)
-
-# Software
-
-pid参数：
-
-![image.png](image%207.png)
-
-# Problems
+## Problems
 
 - DCDC部分，错误地将芯片BS引脚与输出连在一起。
 - MOS啸叫，未找到原因。纠正：MOS不会啸叫，压电类器件更易啸叫。
 
-![Snipaste_2025-12-21_15-04-18.png](Snipaste_2025-12-21_15-04-18.png)
+<p align="center">
+  <img src="ExportBlock/Snipaste_2025-12-21_15-04-18.png" width="600">
+</p>
