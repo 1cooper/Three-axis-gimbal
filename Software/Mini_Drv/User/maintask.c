@@ -5,16 +5,16 @@
 #include "canbsp.h"
 #include "data.h"
 #include "encoder.h"
-//#include "fliter.h"
-//#include "flux_observer.h"
+// #include "fliter.h"
+// #include "flux_observer.h"
 #include "foc.h"
-//#include "hfi_q.h"
+// #include "hfi_q.h"
 #include "main.h"
 #include "pid.h"
-//#include "smo.h"
+// #include "smo.h"
 #include "task_cfg.h"
 #include "tim.h"
-//#include "usbd_cdc_if.h"
+// #include "usbd_cdc_if.h"
 #include "user_lib.h"
 #include "ws2812.h"
 /* Private define ------------------------------------------------------------*/
@@ -25,16 +25,13 @@
 /*switch mode*/
 #define curr_mode      0
 #define cali_mode      0
-#define open_mode      0
+#define open_mode      1
 #define hfi__mode      0
 #define hfi__mode_test 0  // 极性辨识测试
 #define flux_mode      0
 #define smo_mode       0
 /* Private typedef -----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t flag;
-float idkp;
-float idki;
 /* Private function prototypes -----------------------------------------------*/
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
@@ -65,12 +62,12 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
     ClarkeTrans(&foc);
     SinCosCalculate(&foc);
     ParkTrans(&foc);
-    Speed_PID.kp  = Speed_PID.kp;
-    Speed_PID.ki  = Speed_PID.ki;
-    Speed_PID.kd  = Speed_PID.kd;
-    Pos_PID.kp    = Pos_PID.kp;
-    Pos_PID.ki    = Pos_PID.ki;
-    Pos_PID.kd    = Pos_PID.kd;
+    Speed_PID.kp = Speed_PID.kp;
+    Speed_PID.ki = Speed_PID.ki;
+    Speed_PID.kd = Speed_PID.kd;
+    Pos_PID.kp   = Pos_PID.kp;
+    Pos_PID.ki   = Pos_PID.ki;
+    Pos_PID.kd   = Pos_PID.kd;
     Curr_PI_Cal_VoltCircLimit(&Iqd_PI, Speed_PID.result, 0.0f, foc.i_q, foc.i_d);
     foc.u_d = Iqd_PI.id_output;
     foc.u_q = Iqd_PI.iq_output;
@@ -82,8 +79,8 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
 #endif
 #if open_mode
     foc.pulse = encoder_read();
-//    process_numbers(foc.u_a, foc.u_b, foc.u_c, &foc.u_a_offset, &foc.u_b_offset, &foc.u_c_offset);
-    OpenLoop(&foc, 0.0000f);
+    //    process_numbers(foc.u_a, foc.u_b, foc.u_c, &foc.u_a_offset, &foc.u_b_offset, &foc.u_c_offset);
+    OpenLoop(&foc, 0.0003f);
 #endif
 #if hfi__mode
     if(hfi.hfi_inj_cnt == 2)
@@ -163,12 +160,12 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
   }
 }
 float trg_speed = 50.0f;
-float trg_pos   = 50000.0f;
+float trg_pos   = 500000.0f;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
   if(htim == (&htim2))
   {
-		trg_pos   = trg_pos;
+    trg_pos = trg_pos;
     Speed_Cal(&speed, foc.pulse);
     PID_Cal(&Pos_PID, trg_pos, foc.pulse);
     if(Pos_PID.error < -ENCODER_CPR_F)
@@ -176,7 +173,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
       Pos_PID.result = -Pos_PID.result;
     }
     PID_Cal(&Speed_PID, Pos_PID.result, speed.rpm);
-		WS2812_BreathEffect_Smooth(&ws2812);
-//    // PID_Cal(&Speed_PID, trg_speed, speed.rpm);
+    WS2812_BreathEffect_Smooth(&ws2812);
+    //    // PID_Cal(&Speed_PID, trg_speed, speed.rpm);
   }
 }

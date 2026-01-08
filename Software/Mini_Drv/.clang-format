@@ -1,0 +1,104 @@
+BasedOnStyle: Google
+TabWidth: 2
+# 开括号(开圆括号、开尖括号、开方括号)后的对齐: Align, DontAlign, AlwaysBreak(总是在开括号后换行)
+AlignAfterOpenBracket: Align
+# 允许短的if语句保持在同一行
+AllowShortIfStatementsOnASingleLine: true
+# 允许短的case标签放在同一行
+AllowShortCaseLabelsOnASingleLine: true
+# 允许短的循环保持在同一行
+AllowShortLoopsOnASingleLine: true
+# # 是否对齐行尾注释
+AlignTrailingComments: true
+# 连续赋值时，对齐所有等号
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  PadOperators: true
+#连续宏定义对齐
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+# 右对齐逃脱换行(使用反斜杠换行)的反斜杠
+AlignEscapedNewlines: Left 
+
+# false表示所有形参要么都在同一行，要么都各自一行
+BinPackParameters: true
+# 在方括号的[后和]前添加空格，lamda表达式和未指明大小的数组的声明不受影响
+SpacesInSquareBrackets: false
+# 允许排序#include
+SortIncludes: true
+IncludeBlocks : Merge
+# false表示函数实参要么都在同一行，要么都各自一行
+BinPackArguments: true
+# 允许短的块放在同一行
+AllowShortBlocksOnASingleLine: Empty
+# 不允许函数声明的所有参数在放在下一行
+AllowAllParametersOfDeclarationOnNextLine: false
+# 大括号换行，只有当BreakBeforeBraces设置为Custom时才有效
+BraceWrapping:
+  # class定义后面
+  AfterClass: true
+  # 控制语句后面
+  AfterControlStatement: true
+  # enum定义后面
+  AfterEnum: true
+  # 函数定义后面
+  AfterFunction: true
+  # 命名空间定义后面
+  AfterNamespace: true
+  # struct定义后面
+  AfterStruct: true
+  # union定义后面
+  AfterUnion: true
+  # extern之后
+  AfterExternBlock: false
+  # catch之前
+  BeforeCatch: true
+  # else之前
+  BeforeElse: true
+  # 缩进大括号
+  IndentBraces: false
+  # 分离空函数
+  SplitEmptyFunction: true
+  # 分离空语句
+  SplitEmptyRecord: false
+  # 分离空命名空间
+  SplitEmptyNamespace: false
+  #对case后面的大括号换行
+  AfterCaseLabel: true
+  #在while之前换行
+  BeforeWhile:true
+# 在大括号前换行: Attach(始终将大括号附加到周围的上下文), Linux(除函数、命名空间和类定义，与Attach类似), 
+#   Mozilla(除枚举、函数、记录定义，与Attach类似), Stroustrup(除函数定义、catch、else，与Attach类似), 
+#   Allman(总是在大括号前换行), GNU(总是在大括号前换行，并对于控制语句的大括号增加额外的缩进), WebKit(在函数前换行), Custom
+#   注：这里认为语句块也属于函数
+BreakBeforeBraces: Custom
+# 每行字符的限制，0表示没有限制
+ColumnLimit: 200
+# 缩进宽度
+IndentWidth: 2
+# 连续空行的最大数量
+MaxEmptyLinesToKeep: 1
+# 允许短函数在单行上
+AllowShortFunctionsOnASingleLine: None
+# 去除C++11的列表初始化的大括号{后和}前的空格
+Cpp11BracedListStyle: true
+# 开圆括号之前添加一个空格: Never, ControlStatements, Always
+SpaceBeforeParens: Never
+IndentCaseLabels: true
+AlignTrailingComments:Always
+
+
+
+
+
+
+
+
+
+
+

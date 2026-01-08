@@ -45,6 +45,7 @@ minidrv\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 minidrv\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 minidrv\main.o: ../Core/Inc/adc.h
 minidrv\main.o: ../Core/Inc/fdcan.h
+minidrv\main.o: ../Core/Inc/gpio.h
 minidrv\main.o: ../Core/Inc/spi.h
 minidrv\main.o: ../Core/Inc/tim.h
 minidrv\main.o: ../USB_Device/App/usb_device.h
@@ -52,7 +53,8 @@ minidrv\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
 minidrv\main.o: ../USB_Device/Target/usbd_conf.h
 minidrv\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 minidrv\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-minidrv\main.o: ../Core/Inc/gpio.h
+minidrv\main.o: ../User/foc.h
+minidrv\main.o: ../User/pid.h
 minidrv\main.o: ../User/task_cfg.h
 minidrv\main.o: ../USB_Device/App/usbd_cdc_if.h
 minidrv\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h
@@ -61,5 +63,4 @@ minidrv\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
 minidrv\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 minidrv\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 minidrv\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-minidrv\main.o: ../User/foc.h
 minidrv\main.o: ../User/ws2812.h

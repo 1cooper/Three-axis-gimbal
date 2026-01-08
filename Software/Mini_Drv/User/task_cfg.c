@@ -6,12 +6,12 @@
 #include "fdcan.h"
 #include "flash.h"
 #include "fliter.h"
-//#include "flux_observer.h"
+// #include "flux_observer.h"
 #include "foc.h"
-//#include "hfi_q.h"
+// #include "hfi_q.h"
 #include "main.h"
 #include "pid.h"
-//#include "smo.h"
+// #include "smo.h"
 #include "tim.h"
 #include "ws2812.h"
 /* Private define ------------------------------------------------------------*/
@@ -49,8 +49,8 @@ void Bsp_Init(void)
   HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_3);
   /*CAN*/
-//  HAL_FDCAN_Start(&hfdcan1);
-//  HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0);
+  //  HAL_FDCAN_Start(&hfdcan1);
+  //  HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0);
 }
 
 void Param_Init(void)
@@ -60,7 +60,7 @@ void Param_Init(void)
   /*PID Param Init*/
   Curr_PI_Param_VoltCircLInit(&Iqd_PI, 0.0f, 0.0f, 0.0f, 0.0f);
   PID_Init(&Speed_PID, 0.0001f, 0.01f, 0.001f, 1000.0f, 10.0f);
-  PID_Init(&Pos_PID, 0.0001f, 0.001f, 0.1f, 1.0f, 200.0f);
+  PID_Init(&Pos_PID, 0.0001f, 0.001f, 0.8f, 1.0f, 200.0f);
   /*RGB Init*/
   WS2812_Breathing_Param_Init(&ws2812, 50, 5, 20, 0.003f, 0.05f, 0.9f);
   /*Eangle Init*/
@@ -68,12 +68,12 @@ void Param_Init(void)
   Read_lut_FromData(flash_data, offset_lut, 256);
   Read_offset_FromData(flash_data, &encoder_offset, 256);
   /*HFI Init*/
-//  HFI_Init(&hfi);
-//  /*FLUX Init*/
-//  Flux_Init(&flux);
-//  Smo_Init(&smo);
-//  /*IIR Init*/
-//  IIR_Butterworth_Init();
+  //  HFI_Init(&hfi);
+  //  /*FLUX Init*/
+  //  Flux_Init(&flux);
+  //  Smo_Init(&smo);
+  //  /*IIR Init*/
+  //  IIR_Butterworth_Init();
 }
 
 void Decives_Init(void)
